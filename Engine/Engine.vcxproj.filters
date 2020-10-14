@@ -13,5 +13,85 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\Serialization">
+      <UniqueIdentifier>{fb80c873-8e26-4ad8-a2af-27b9860797a7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Debugging">
+      <UniqueIdentifier>{5840a822-8ae6-4446-8475-4e03b8da985a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Simulation">
+      <UniqueIdentifier>{0feeb0b7-0da5-448c-a286-202421b895a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Patterns">
+      <UniqueIdentifier>{f92ecfd4-dd61-4bf1-8ff7-881f3a8db711}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Simulation">
+      <UniqueIdentifier>{693eced9-c42a-4192-b686-f324e75ba229}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Debugging">
+      <UniqueIdentifier>{ce189576-aff8-4b98-a2ae-2d857574901d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="AssetRegistry.ixx">
+      <Filter>Header Files\Serialization</Filter>
+    </ClCompile>
+    <ClCompile Include="StaticFactory.ixx">
+      <Filter>Header Files\Serialization</Filter>
+    </ClCompile>
+    <ClCompile Include="Serialization.ixx">
+      <Filter>Header Files\Serialization</Filter>
+    </ClCompile>
+    <ClCompile Include="Logger.ixx">
+      <Filter>Header Files\Debugging</Filter>
+    </ClCompile>
+    <ClCompile Include="Component.ixx">
+      <Filter>Header Files\Simulation</Filter>
+    </ClCompile>
+    <ClCompile Include="Composition.ixx">
+      <Filter>Header Files\Simulation</Filter>
+    </ClCompile>
+    <ClCompile Include="Updatable.ixx">
+      <Filter>Header Files\Simulation</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.ixx">
+      <Filter>Header Files\Simulation</Filter>
+    </ClCompile>
+    <ClCompile Include="System.ixx">
+      <Filter>Header Files\Simulation</Filter>
+    </ClCompile>
+    <ClCompile Include="Locator.ixx">
+      <Filter>Header Files\Patterns</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity.ixx">
+      <Filter>Header Files\Simulation</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.ixx">
+      <Filter>Header Files\Simulation</Filter>
+    </ClCompile>
+    <ClCompile Include="Terminal.ixx">
+      <Filter>Header Files\Debugging</Filter>
+    </ClCompile>
+    <ClCompile Include="Component.cpp">
+      <Filter>Source Files\Simulation</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Source Files\Simulation</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>Source Files\Simulation</Filter>
+    </ClCompile>
+    <ClCompile Include="Updatable.cpp">
+      <Filter>Source Files\Simulation</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity.cpp">
+      <Filter>Source Files\Simulation</Filter>
+    </ClCompile>
+    <ClCompile Include="Logger.cpp">
+      <Filter>Source Files\Debugging</Filter>
+    </ClCompile>
+    <ClCompile Include="Terminal.cpp">
+      <Filter>Source Files\Debugging</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

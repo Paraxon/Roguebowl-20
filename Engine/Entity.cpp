@@ -1,0 +1,34 @@
+import Entity;
+import Component;
+import Composition;
+#include <SFML/Graphics.hpp>
+
+Composition<Entity, Component>& Entity::components()
+{
+	return const_cast<Composition<Entity, Component> &>(
+		static_cast<const Entity&>(*this).components());
+}
+
+void Entity::debug_draw(sf::RenderTarget& target, sf::RenderStates states) const
+{
+	states.transform *= getTransform();
+	for (const auto & component : components())
+		component->debug_draw(target, states);
+}
+
+void Entity::start()
+{
+	for (const auto & component : components())
+		component->start();
+}
+
+void Entity::update(const sf::Time& delta_time)
+{
+	for (const auto & component : components())
+		component->update(delta_time);
+}
+
+constexpr bool Entity::operator==(const Entity& other)
+{
+	return id() == other.id();
+}

@@ -18,6 +18,28 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="AssetRegistry.ixx" />
+    <ClCompile Include="Component.cpp" />
+    <ClCompile Include="Component.ixx" />
+    <ClCompile Include="Composition.ixx" />
+    <ClCompile Include="Entity.cpp" />
+    <ClCompile Include="Entity.ixx" />
+    <ClCompile Include="Game.cpp" />
+    <ClCompile Include="Game.ixx" />
+    <ClCompile Include="Locator.ixx" />
+    <ClCompile Include="Logger.cpp" />
+    <ClCompile Include="Logger.ixx" />
+    <ClCompile Include="Scene.cpp" />
+    <ClCompile Include="Scene.ixx" />
+    <ClCompile Include="Serialization.ixx" />
+    <ClCompile Include="StaticFactory.ixx" />
+    <ClCompile Include="System.ixx" />
+    <ClCompile Include="Terminal.cpp" />
+    <ClCompile Include="Terminal.ixx" />
+    <ClCompile Include="Updatable.cpp" />
+    <ClCompile Include="Updatable.ixx" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
@@ -104,6 +126,8 @@
       <TreatWarningAsError>true</TreatWarningAsError>
       <AdditionalIncludeDirectories>
       </AdditionalIncludeDirectories>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <AdditionalOptions>/experimental:module %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -122,6 +146,8 @@
       <TreatWarningAsError>true</TreatWarningAsError>
       <AdditionalIncludeDirectories>
       </AdditionalIncludeDirectories>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <AdditionalOptions>/experimental:module %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -140,6 +166,8 @@
       <TreatWarningAsError>true</TreatWarningAsError>
       <AdditionalIncludeDirectories>
       </AdditionalIncludeDirectories>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <AdditionalOptions>/experimental:module %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -158,6 +186,8 @@
       <TreatWarningAsError>true</TreatWarningAsError>
       <AdditionalIncludeDirectories>
       </AdditionalIncludeDirectories>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <AdditionalOptions>/experimental:module %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
