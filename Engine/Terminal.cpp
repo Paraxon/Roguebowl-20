@@ -1,7 +1,8 @@
-import Terminal;
-#include <Windows.h>
-#include <memory>
 #include <iostream>
+#include <memory>
+#include <Windows.h>
+import Logger;
+import Terminal;
 
 constexpr Terminal::Colour::operator WORD() const
 {

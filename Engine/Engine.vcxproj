@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -23,6 +23,7 @@
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="Component.ixx" />
     <ClCompile Include="Composition.ixx" />
+    <ClCompile Include="Crash.ixx" />
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="Entity.ixx" />
     <ClCompile Include="Game.cpp" />
@@ -33,12 +34,15 @@
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Scene.ixx" />
     <ClCompile Include="Serialization.ixx" />
+    <ClCompile Include="StackTrace.ixx" />
     <ClCompile Include="StaticFactory.ixx" />
     <ClCompile Include="System.ixx" />
     <ClCompile Include="Terminal.cpp" />
     <ClCompile Include="Terminal.ixx" />
     <ClCompile Include="Updatable.cpp" />
     <ClCompile Include="Updatable.ixx" />
+    <ClCompile Include="WinTrace.cpp" />
+    <ClCompile Include="WinTrace.ixx" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
@@ -126,8 +130,9 @@
       <TreatWarningAsError>true</TreatWarningAsError>
       <AdditionalIncludeDirectories>
       </AdditionalIncludeDirectories>
+      <AdditionalOptions>/experimental:module /w14640 %(AdditionalOptions)</AdditionalOptions>
+      <EnableModules>true</EnableModules>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
-      <AdditionalOptions>/experimental:module %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -146,8 +151,9 @@
       <TreatWarningAsError>true</TreatWarningAsError>
       <AdditionalIncludeDirectories>
       </AdditionalIncludeDirectories>
+      <AdditionalOptions>/experimental:module /w14640 %(AdditionalOptions)</AdditionalOptions>
+      <EnableModules>true</EnableModules>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
-      <AdditionalOptions>/experimental:module %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -166,8 +172,9 @@
       <TreatWarningAsError>true</TreatWarningAsError>
       <AdditionalIncludeDirectories>
       </AdditionalIncludeDirectories>
+      <AdditionalOptions>/experimental:module /w14640 %(AdditionalOptions)</AdditionalOptions>
+      <EnableModules>true</EnableModules>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
-      <AdditionalOptions>/experimental:module %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -186,8 +193,9 @@
       <TreatWarningAsError>true</TreatWarningAsError>
       <AdditionalIncludeDirectories>
       </AdditionalIncludeDirectories>
+      <AdditionalOptions>/experimental:module /w14640 %(AdditionalOptions)</AdditionalOptions>
+      <EnableModules>true</EnableModules>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
-      <AdditionalOptions>/experimental:module %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

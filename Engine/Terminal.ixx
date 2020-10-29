@@ -34,7 +34,7 @@ public:
 		[[nodiscard]] constexpr operator WORD() const;
 		//Serializable
 		constexpr void load(const std::string& source);
-		//Defaults
+		//Named Colours
 		static constexpr WORD White = FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_RED | FOREGROUND_INTENSITY;
 		static constexpr WORD Blue = FOREGROUND_BLUE | FOREGROUND_INTENSITY;
 		static constexpr WORD Green = FOREGROUND_GREEN | FOREGROUND_INTENSITY;

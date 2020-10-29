@@ -24,10 +24,12 @@ public:
 	[[nodiscard]] std::shared_ptr<const Scene> scene() const override { return shared_from_this(); };
 	[[nodiscard]] std::shared_ptr<Entity> create_entity(const unsigned int id = 0) override;
 	[[nodiscard]] std::shared_ptr<Entity> find_entity(const unsigned int id) const override;
-	//Simulation
+	//Debugging
+	void report_crash() const override;
 	void debug_draw(sf::RenderTarget& target, sf::RenderStates states) const override;
+	//Simulation
 	void start() override;
-	void update(const sf::Time& delta_time) override;
+	void update(sf::Time delta_time) override;
 	//Drawable
 	void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
 	//Serializable

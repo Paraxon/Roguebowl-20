@@ -93,5 +93,17 @@
     <ClCompile Include="Terminal.cpp">
       <Filter>Source Files\Debugging</Filter>
     </ClCompile>
+    <ClCompile Include="Crash.ixx">
+      <Filter>Header Files\Debugging</Filter>
+    </ClCompile>
+    <ClCompile Include="StackTrace.ixx">
+      <Filter>Header Files\Debugging</Filter>
+    </ClCompile>
+    <ClCompile Include="WinTrace.ixx">
+      <Filter>Header Files\Debugging</Filter>
+    </ClCompile>
+    <ClCompile Include="WinTrace.cpp">
+      <Filter>Source Files\Debugging</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

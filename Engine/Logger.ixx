@@ -9,8 +9,6 @@ export module Logger;
 import StaticFactory;
 import Serialization;
 
-using namespace std::string_literals;
-
 export class Logger
 {
 public:
@@ -43,30 +41,38 @@ public:
 	{
 	public:
 		//Rule of 5
+		Channel(const Channel &) = delete;
+		Channel(Channel&&) = delete;
+		Channel& operator=(const Channel&) = delete;
+		Channel& operator=(Channel&&) = delete;
 		virtual ~Channel() = default;
-		virtual void write(const std::string& message) = 0;
+		//Active
+		constexpr void activate(bool value = true) { _active = value; };
+		[[nodiscard]] constexpr bool active() const { return _active; };
+		//Logging
+		virtual void write(const std::string & message) = 0;
 		//Serializable
 		virtual void load(const pugi::xml_node& source) = 0;
 		//Cloneable
 		[[nodiscard]] virtual std::unique_ptr<Channel> clone() const = 0;
-		//Active
-		constexpr void activate(bool value = true) { _active = value; };
-		[[nodiscard]] constexpr bool active() const { return _active; };
+	protected:
+		Channel() = default;
 	private:
 		bool _active = true;
 	};
 	//Logging
 	constexpr void set_verbosity(const Logger::Verbosity value) { _verbosity = value; };
 	void log(const std::string & name, const Logger::Verbosity verbosity, const std::string & message);
-	//std::unique_ptr<TimedMessage> time(const std::string & channel, Verbosity verbosity, const std::string& message);
 	//Channels
-	[[nodiscard]] std::shared_ptr<Channel> find(const std::string& name);
-	void add(const std::string& name, std::shared_ptr<Channel> channel);
+	[[nodiscard]] std::shared_ptr<Channel> find(const std::string& name) const;
+	[[nodiscard]] std::shared_ptr<Channel> get(const std::string& name);
+	std::shared_ptr<Channel> add(const std::string& name, std::shared_ptr<Channel> channel);
+	void set_prototype(const std::shared_ptr<Channel> & value) { _prototype = value; };
 	//Serializable
 	void load(const std::filesystem::path& path);
 private:
 	Verbosity _verbosity = Verbosity::Trace;
 	std::ofstream _file{ "output.txt" };
-	std::unique_ptr<Channel> _prototype;
+	std::shared_ptr<Channel> _prototype;
 	std::map<std::string, std::shared_ptr<Channel>> _channels;
 };

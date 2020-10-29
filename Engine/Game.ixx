@@ -5,6 +5,8 @@ export module Game;
 
 import Updatable;
 import Composition;
+import Scene;
+import Component;
 
 export class Game :
 	public Updatable,
@@ -19,8 +21,11 @@ public:
 	[[nodiscard]] std::shared_ptr<const Scene> scene() const override { return _scene; };
 	//Simulation
 	void start() override;
-	void update(const sf::Time& delta_time) override;
+	void update(sf::Time delta_time) override;
+	//Debugging
+	[[nodiscard]] sf::Image screenshot() const;
 	void debug_draw(sf::RenderTarget& target, sf::RenderStates states) const override;
+	void report_crash() const override;
 private:
 	void handle_events();
 	sf::RenderWindow _window;

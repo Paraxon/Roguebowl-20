@@ -16,14 +16,21 @@ void Entity::debug_draw(sf::RenderTarget& target, sf::RenderStates states) const
 		component->debug_draw(target, states);
 }
 
+void Entity::report_crash() const
+{
+	for (const auto& component : components())
+		component->report_crash();
+}
+
 void Entity::start()
 {
 	for (const auto & component : components())
 		component->start();
 }
 
-void Entity::update(const sf::Time& delta_time)
+void Entity::update(sf::Time delta_time)
 {
+	delta_time *= timescale();
 	for (const auto & component : components())
 		component->update(delta_time);
 }

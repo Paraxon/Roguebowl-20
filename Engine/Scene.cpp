@@ -1,9 +1,11 @@
 import Scene;
 import System;
 import Entity;
+#include <SFML/System.hpp>
 
-void Scene::update(const sf::Time & delta_time)
+void Scene::update(sf::Time delta_time)
 {
+	delta_time *= timescale();
 	for (auto & system : systems())
 		system->update(delta_time);
 	for (auto & entity : _entities)
@@ -16,6 +18,14 @@ void Scene::start()
 		system->start();
 	for (auto & entity : _entities)
 		entity->start();
+}
+
+void Scene::report_crash() const
+{
+	for (auto & system : systems())
+		system->report_crash();
+	for (auto & entity : _entities)
+		entity->report_crash();
 }
 
 void Scene::debug_draw(sf::RenderTarget& target, sf::RenderStates states) const
