@@ -6,6 +6,7 @@ import StaticFactory;
 import Updatable;
 import Serialization;
 import Composition;
+import TimeStep;
 
 export class System :
 	public sf::Drawable,

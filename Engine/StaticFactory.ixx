@@ -1,7 +1,7 @@
 module;
-#include <map>
-#include <memory>
 #include <string>
+#include <memory>
+#include <map>
 export module StaticFactory;
 
 import Serialization;
@@ -23,11 +23,8 @@ template <typename ... arg_types>
 	requires Cloneable<product_type, arg_types ...>
 constexpr std::unique_ptr<product_type> StaticFactory<product_type, identifier_type>::create(const identifier_type & identifier, const arg_types & ... args)
 {
-	auto match = _prototypes.find(identifier);
-	if (match == _prototypes.end())
-		return nullptr;
-	const auto & prototype = match->second;
-	return prototype->clone(args...);
+	const auto prototype = _prototypes.find(identifier);
+	return prototype != _prototypes.end() ? prototype->second->clone(args...) : nullptr;
 }
 
 template<typename product_type, typename identifier_type>

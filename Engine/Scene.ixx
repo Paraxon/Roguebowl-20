@@ -11,6 +11,7 @@ import StaticFactory;
 import Serialization;
 import Entity;
 import Component;
+import TimeStep;
 
 export class Scene :
 	public sf::Drawable,
@@ -29,7 +30,7 @@ public:
 	void debug_draw(sf::RenderTarget& target, sf::RenderStates states) const override;
 	//Simulation
 	void start() override;
-	void update(sf::Time delta_time) override;
+	void update(TimeStep timestep) override;
 	//Drawable
 	void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
 	//Serializable

@@ -1,9 +1,8 @@
-module;
-#include <filesystem>
-#include <map>
-#include <memory>
 export module AssetRegistry;
 
+import std.core;
+import std.memory;
+import std.filesystem;
 import Serialization;
 
 template <typename asset_type>

@@ -1,23 +1,15 @@
-import WinTrace;
+#include <SFML/Window.hpp>
 #include <iostream>
-#include <fmt/core.h>
-#include <Windows.h>
-
+#include <chrono>
+import HardwareButton;
+import TimeStep;
 
 int main()
-try
 {
-	CONTEXT context;
-	RtlCaptureContext(&context);
-	throw std::make_unique<WinTrace>(context);
-}
-catch (const std::unique_ptr<WinTrace> & trace)
-{
-	for (auto i = 0; const auto frame : *trace)
-	{
-		if (frame.source)
-			std::cout << fmt::format("{}: {} ({}: {})\n", i++, frame.name, frame.source->filename().string(), *frame.line);
-		else
-			std::cout << fmt::format("{}: {}\n", i++, frame.name);
-	}
+	HardwareButton button(sf::Mouse::Button::Left);
+	using namespace std::chrono_literals;
+	TimeStep timestep{16ms};
+	button.update(timestep);
+	std::cout << button.is_down() << std::endl;
+	return 0;
 }

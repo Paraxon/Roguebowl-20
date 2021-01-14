@@ -9,11 +9,11 @@ std::map<std::string, std::shared_ptr<Logger::Channel>> StaticFactory<Logger::Ch
 	{"terminal", std::make_shared<Terminal>() }
 };
 
-void Logger::log(const std::string & name, const Logger::Verbosity verbosity, const std::string& message)
+void Logger::log(const std::string & channelName, const Logger::Verbosity verbosity, const std::string& message)
 {
 	if (verbosity <= _verbosity)
 	{
-		auto channel = get(name);
+		auto channel = get(channelName);
 		if (channel->active())
 			channel->write(message);
 	}

@@ -28,11 +28,11 @@ void Entity::start()
 		component->start();
 }
 
-void Entity::update(sf::Time delta_time)
+void Entity::update(TimeStep timestep)
 {
-	delta_time *= timescale();
+	timestep *= timescale();
 	for (const auto & component : components())
-		component->update(delta_time);
+		component->update(timestep);
 }
 
 constexpr bool Entity::operator==(const Entity& other)

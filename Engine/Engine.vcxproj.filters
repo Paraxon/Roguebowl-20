@@ -31,6 +31,12 @@
     <Filter Include="Source Files\Debugging">
       <UniqueIdentifier>{ce189576-aff8-4b98-a2ae-2d857574901d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Input">
+      <UniqueIdentifier>{aff85654-9215-409c-8c63-f9f88682b667}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Input">
+      <UniqueIdentifier>{b0a976c5-7c1f-4701-ae14-353ef4343837}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssetRegistry.ixx">
@@ -66,16 +72,10 @@
     <ClCompile Include="Entity.ixx">
       <Filter>Header Files\Simulation</Filter>
     </ClCompile>
-    <ClCompile Include="Game.ixx">
-      <Filter>Header Files\Simulation</Filter>
-    </ClCompile>
     <ClCompile Include="Terminal.ixx">
       <Filter>Header Files\Debugging</Filter>
     </ClCompile>
     <ClCompile Include="Component.cpp">
-      <Filter>Source Files\Simulation</Filter>
-    </ClCompile>
-    <ClCompile Include="Game.cpp">
       <Filter>Source Files\Simulation</Filter>
     </ClCompile>
     <ClCompile Include="Scene.cpp">
@@ -104,6 +104,54 @@
     </ClCompile>
     <ClCompile Include="WinTrace.cpp">
       <Filter>Source Files\Debugging</Filter>
+    </ClCompile>
+    <ClCompile Include="TimeStep.ixx">
+      <Filter>Header Files\Simulation</Filter>
+    </ClCompile>
+    <ClCompile Include="Simulation.ixx">
+      <Filter>Header Files\Simulation</Filter>
+    </ClCompile>
+    <ClCompile Include="Simulation.cpp">
+      <Filter>Source Files\Simulation</Filter>
+    </ClCompile>
+    <ClCompile Include="Observer.ixx">
+      <Filter>Header Files\Patterns</Filter>
+    </ClCompile>
+    <ClCompile Include="Event.ixx">
+      <Filter>Header Files\Patterns</Filter>
+    </ClCompile>
+    <ClCompile Include="Subject.ixx">
+      <Filter>Header Files\Patterns</Filter>
+    </ClCompile>
+    <ClCompile Include="Command.ixx">
+      <Filter>Header Files\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="Button.ixx">
+      <Filter>Header Files\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="Button.cpp">
+      <Filter>Source Files\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="CompositeButton.ixx">
+      <Filter>Header Files\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="ButtonSequence.ixx">
+      <Filter>Header Files\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="ButtonSequence.cpp">
+      <Filter>Source Files\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="HardwareButton.ixx">
+      <Filter>Header Files\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="HardwareButton.cpp">
+      <Filter>Source Files\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="ButtonTap.ixx">
+      <Filter>Header Files\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="ButtonTap.cpp">
+      <Filter>Source Files\Input</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

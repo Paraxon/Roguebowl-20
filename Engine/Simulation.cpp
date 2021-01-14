@@ -1,19 +1,20 @@
 #include <filesystem>
 #include <SFML/Graphics.hpp>
 #include <chrono>
-import Game;
+
 import Locator;
 import Logger;
 import Scene;
+import Simulation;
 import Terminal;
+import TimeStep;
 
-Game::Game()
+Simulation::Simulation()
 {
 	//services
 	//Locator<Logger>::get().load("logger.xml");
 	auto channel = std::make_shared<Terminal>();
 	Locator<Logger>::get().set_prototype(channel);
-	//const auto timer = Locator<Logger>::get().time("debug", Verbosity::Info, "initilization complete");
 	//Locator<tmx::TypesCollection>::get().load("object_types.xml");
 	//Locator<CompositionFactory<Entity, Component>>::get().load("entity_types.xml");
 	//Locator<CompositionFactory<Scene, System>>::get().load("scene_types.xml");
@@ -28,30 +29,35 @@ Game::Game()
 	//_scene->load("dungeon.tmx");
 
 	//events
-	_delegates[sf::Event::KeyPressed].push_back([this](const auto event) {
-		if (event.key.code == sf::Keyboard::Tilde)
-			_debug = !_debug;
-		});
-	_delegates[sf::Event::KeyPressed].push_back([this](const auto event) {
-		if (event.key.code == sf::Keyboard::Escape)
-			_window.close();
-		});
-	_delegates[sf::Event::Closed].push_back([this](const auto event) {
-		event; _window.close();
-		});
+	_delegates[sf::Event::KeyPressed].push_back([&](const auto event) {
+		switch (event.key.code)
+		{
+			case sf::Keyboard::Tilde:
+				_debug = !_debug;
+				break;
+			case sf::Keyboard::Escape:
+				_window.close();
+				break;
+		}
+	});
+	_delegates[sf::Event::Closed].push_back([&](const auto event) {
+		_window.close();
+	});
 }
 
-void Game::run()
+void Simulation::run()
 {
 	start();
 	while (_window.isOpen())
 	{
 		//update
 		handle_events();
-		update(_clock.restart());
+		++_timestep;
+		_budget += _clock.restart();
+		update(_timestep);
 
 		//draw
-		_window.clear(sf::Color::Black);
+		_window.clear(sf::Color::Blue);
 		draw(_window, sf::RenderStates::Default);
 		if (_debug)
 			debug_draw(_window, sf::RenderStates::Default);
@@ -59,34 +65,36 @@ void Game::run()
 	}
 }
 
-void Game::draw(sf::RenderTarget& target, sf::RenderStates states) const
+void Simulation::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
-	target.draw(*scene(), states);
+	if (scene())
+		target.draw(*scene(), states);
 }
 
-void Game::start()
+void Simulation::start()
 {
-	Updatable::scene()->start();
+	if (scene())
+		Updatable::scene()->start();
 }
 
-void Game::update(sf::Time delta_time)
+void Simulation::update(TimeStep timestep)
 {
-	delta_time *= timescale();
-	_budget += delta_time;
-	while (_budget >= _timeStep)
+	timestep *= timescale();
+	while (_budget >= timestep.scaled_time())
 	{
-		Updatable::scene()->update(_timeStep);
-		_budget -= _timeStep;
+		if (scene())
+			Updatable::scene()->update(timestep);
+		_budget -= timestep.scaled_time();
 	}
 }
 
-void Game::report_crash() const
+void Simulation::report_crash() const
 {
 	/*report.set_screenshot(screenshot());
 	scene()->report_crash(report);*/
 }
 
-sf::Image Game::screenshot() const
+sf::Image Simulation::screenshot() const
 {
 	sf::RenderTexture texture;
 	const auto size = _window.getSize();
@@ -95,12 +103,12 @@ sf::Image Game::screenshot() const
 	return texture.getTexture().copyToImage();
 }
 
-void Game::debug_draw(sf::RenderTarget& target, sf::RenderStates states) const
+void Simulation::debug_draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
 	scene()->debug_draw(target, states);
 }
 
-void Game::handle_events()
+void Simulation::handle_events()
 {
 	sf::Event event;
 	while (_window.pollEvent(event))
