@@ -16,9 +16,9 @@ public:
 	[[nodiscard]] constexpr bool was_released() const { return !_isDown && _wasDown; };
 	//Command
 	void update(TimeStep timestep) override;
+	[[nodiscard]] bool poll() const override;
 protected:
 	bool _wasDown = false, _isDown = false;
-	[[nodiscard]] bool poll() const override;
 	hardware_type _button;
 };
 

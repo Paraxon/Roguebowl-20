@@ -1,6 +1,7 @@
 module;
 #include <functional>
 #include <SFML/Graphics.hpp>
+#include <chrono>
 export module Simulation;
 
 import Component;
@@ -34,6 +35,6 @@ private:
 	std::shared_ptr<Scene> _scene;
 	bool _debug = false;
 	TimeStep _timestep = sf::seconds(1.f / 60);
-	sf::Time _budget;
+	std::chrono::duration<float> _budget;
 	std::map<sf::Event::EventType, std::vector<std::function<void(const sf::Event)>>> _delegates;
 };

@@ -5,6 +5,7 @@ module;
 #include <memory>
 #include <SFML/System.hpp>
 #include <vector>
+#include <chrono>
 export module Command;
 
 import TimeStep;
@@ -38,6 +39,10 @@ bool CommandMatch<value_type>::poll() const
 
 export class CompositeCommand : public Command<bool>
 {
+public:
+	template <typename iter_type>
+	CompositeCommand(const iter_type& first, const iter_type& last) :
+		_commands(first, last) {};
 protected:
 	std::vector<std::shared_ptr<Command<bool>>> _commands;
 };
@@ -45,6 +50,9 @@ protected:
 export class CommandCombination : public CompositeCommand
 {
 public:
+	template <typename iter_type>
+	CommandCombination(const iter_type& first, const iter_type& last)
+		: CompositeCommand(first, last) {};
 	void update(TimeStep timestep) override;
 	[[nodiscard]] bool poll() const override;
 };
@@ -65,11 +73,14 @@ bool CommandCombination::poll() const
 export class CommandSequence : public CompositeCommand
 {
 public:
+	template <typename iter_type>
+	CommandSequence(const iter_type& first, const iter_type& last, const std::chrono::duration<float> & limit)
+		: CompositeCommand(first, last), _timeLimit(limit) {};
 	void update(TimeStep timestep) override;
 	[[nodiscard]] bool poll() const override;
 private:
 	int _index = 0;
-	sf::Time _timeLimit, _elapsedTime;
+	std::chrono::duration<float> _timeLimit, _elapsedTime{};
 	[[nodiscard]] bool is_complete() const;
 	[[nodiscard]] bool is_expired() const;
 	[[nodiscard]] std::shared_ptr<Command<bool>> current() const;
@@ -110,13 +121,13 @@ bool CommandSequence::poll() const
 void CommandSequence::advance()
 {
 	++_index;
-	_elapsedTime = sf::seconds(0);
+	_elapsedTime = std::chrono::seconds::zero();
 }
 
 void CommandSequence::reset()
 {
 	_index = 0;
-	_elapsedTime = sf::seconds(0);
+	_elapsedTime = std::chrono::seconds::zero();
 }
 
 //Game Engine Architecture, Third Edition, pg. 577
@@ -124,24 +135,25 @@ export class CommandTap : public Command<bool>
 {
 public:
 	CommandTap() = default;
-	CommandTap(std::shared_ptr<Command<bool>> command, float frequency) : _delegate(command), _frequency(frequency) {};
-	CommandTap(std::shared_ptr<Command<bool>> command, sf::Time period) : _delegate(command), _frequency(1 / period.asSeconds()) {};
+	//CommandTap(std::shared_ptr<Command<bool>> command, float frequency) : _delegate(command), _frequency(frequency) {};
+	CommandTap(std::shared_ptr<Command<bool>> command, const std::chrono::seconds & period) 
+		: _delegate(command), _period(period) {};
+	[[nodiscard]] std::chrono::duration<float> elapsed() const{ return _elapsed; };
 	//Command
 	void update(TimeStep timestep) override;
 	[[nodiscard]] bool poll() const override;
 private:
-	float _frequency = 0.f;
 	std::shared_ptr<Command<bool>> _delegate;
-	sf::Time _elapsed;
+	std::chrono::duration<float> _elapsed, _period;
 };
 
 void CommandTap::update(TimeStep timestep)
 {
 	_delegate->update(timestep);
-	_elapsed = _delegate->poll() ? sf::seconds(0) : _elapsed + timestep.scaled_time();
+	_elapsed = _delegate->poll() ? std::chrono::seconds::zero() : _elapsed + timestep.scaled_time();
 }
 
 bool CommandTap::poll() const
 {
-	return 1 / _elapsed.asSeconds() >= _frequency;
+	return _elapsed <= _period;
 }

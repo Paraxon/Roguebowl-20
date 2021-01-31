@@ -111,7 +111,7 @@
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <EnableModules>true</EnableModules>
       <TreatWarningAsError>false</TreatWarningAsError>
-      <DisableSpecificWarnings>5050;</DisableSpecificWarnings>
+      <DisableSpecificWarnings>5050;4100</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -130,7 +130,7 @@
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <EnableModules>true</EnableModules>
       <TreatWarningAsError>true</TreatWarningAsError>
-      <DisableSpecificWarnings>5050;</DisableSpecificWarnings>
+      <DisableSpecificWarnings>5050;4100</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -149,7 +149,7 @@
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <EnableModules>true</EnableModules>
       <TreatWarningAsError>true</TreatWarningAsError>
-      <DisableSpecificWarnings>5050;</DisableSpecificWarnings>
+      <DisableSpecificWarnings>5050;4100</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -168,7 +168,7 @@
       <LanguageStandard>stdcpplatest</LanguageStandard>
       <EnableModules>true</EnableModules>
       <TreatWarningAsError>true</TreatWarningAsError>
-      <DisableSpecificWarnings>5050;</DisableSpecificWarnings>
+      <DisableSpecificWarnings>5050;4100</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

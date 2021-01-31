@@ -8,6 +8,7 @@ import Scene;
 import Simulation;
 import Terminal;
 import TimeStep;
+import Updatable;
 
 Simulation::Simulation()
 {
@@ -53,7 +54,7 @@ void Simulation::run()
 		//update
 		handle_events();
 		++_timestep;
-		_budget += _clock.restart();
+		_budget += std::chrono::microseconds(_clock.restart().asMicroseconds());
 		update(_timestep);
 
 		//draw
