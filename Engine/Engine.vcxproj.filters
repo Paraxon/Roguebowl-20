@@ -129,29 +129,8 @@
     <ClCompile Include="Button.ixx">
       <Filter>Header Files\Input</Filter>
     </ClCompile>
-    <ClCompile Include="Button.cpp">
-      <Filter>Source Files\Input</Filter>
-    </ClCompile>
-    <ClCompile Include="CompositeButton.ixx">
+    <ClCompile Include="Axis.ixx">
       <Filter>Header Files\Input</Filter>
-    </ClCompile>
-    <ClCompile Include="ButtonSequence.ixx">
-      <Filter>Header Files\Input</Filter>
-    </ClCompile>
-    <ClCompile Include="ButtonSequence.cpp">
-      <Filter>Source Files\Input</Filter>
-    </ClCompile>
-    <ClCompile Include="HardwareButton.ixx">
-      <Filter>Header Files\Input</Filter>
-    </ClCompile>
-    <ClCompile Include="HardwareButton.cpp">
-      <Filter>Source Files\Input</Filter>
-    </ClCompile>
-    <ClCompile Include="ButtonTap.ixx">
-      <Filter>Header Files\Input</Filter>
-    </ClCompile>
-    <ClCompile Include="ButtonTap.cpp">
-      <Filter>Source Files\Input</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

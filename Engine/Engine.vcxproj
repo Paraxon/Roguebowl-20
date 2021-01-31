@@ -20,23 +20,16 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssetRegistry.ixx" />
-    <ClCompile Include="Button.cpp" />
+    <ClCompile Include="Axis.ixx" />
     <ClCompile Include="Button.ixx" />
-    <ClCompile Include="ButtonSequence.cpp" />
-    <ClCompile Include="ButtonSequence.ixx" />
-    <ClCompile Include="ButtonTap.cpp" />
-    <ClCompile Include="ButtonTap.ixx" />
     <ClCompile Include="Command.ixx" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="Component.ixx" />
-    <ClCompile Include="CompositeButton.ixx" />
     <ClCompile Include="Composition.ixx" />
     <ClCompile Include="Crash.ixx" />
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="Entity.ixx" />
     <ClCompile Include="Event.ixx" />
-    <ClCompile Include="HardwareButton.cpp" />
-    <ClCompile Include="HardwareButton.ixx" />
     <ClCompile Include="Observer.ixx" />
     <ClCompile Include="Simulation.cpp" />
     <ClCompile Include="Simulation.ixx" />
