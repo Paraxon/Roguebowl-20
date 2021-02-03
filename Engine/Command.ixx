@@ -15,15 +15,44 @@ class Command
 {
 public:
 	virtual void update(TimeStep timestep) = 0;
+	virtual value_type get_value() const = 0;
+protected:
 	[[nodiscard]] virtual value_type poll() const = 0;
 };
+
+export template<>
+class Command<bool>
+{
+public: 
+	[[nodiscard]] constexpr bool was_pressed() const { return _isDown && !_wasDown; };
+	[[nodiscard]] constexpr bool is_down() const { return _isDown; };
+	[[nodiscard]] constexpr bool was_released() const { return !_isDown && _wasDown; };
+	//Command
+	virtual void update(TimeStep timestep);
+	virtual bool get_value() const { return _isDown; };
+protected:
+	[[nodiscard]] virtual bool poll() const = 0;
+private:
+	bool _wasDown = false, _isDown = false;
+};
+
+void Command<bool>::update(TimeStep timestep)
+{
+	_wasDown = _isDown;
+	_isDown = poll();
+}
 
 export template <typename value_type>
 class CommandMatch : public Command<bool>
 {
 public:
-	CommandMatch(std::shared_ptr<Command<value_type>>, const value_type& target,
-		const std::function<bool(value_type, value_type)> = std::equal_to<value_type>);
+	using predicate_type = std::function<bool(value_type, value_type)>;
+	CommandMatch(std::shared_ptr<Command<value_type>> command, 
+		const value_type& target, 
+		const predicate_type predicate = std::equal_to<value_type>) 
+		: _delegate(command), _target(target), _predicate(predicate) {};
+protected:
+	//Command
 	[[nodiscard]] bool poll() const override;
 private:
 	std::unique_ptr<Command<value_type>> _delegate;
@@ -34,56 +63,53 @@ private:
 template<typename value_type>
 bool CommandMatch<value_type>::poll() const
 {
-	return _predicate(_delegate->read() == _target);
+	return _predicate(_delegate->get_value(), _target);
 }
 
-export class CompositeCommand : public Command<bool>
-{
-public:
-	template <typename iter_type>
-	CompositeCommand(const iter_type& first, const iter_type& last) :
-		_commands(first, last) {};
-protected:
-	std::vector<std::shared_ptr<Command<bool>>> _commands;
-};
-
-export class CommandCombination : public CompositeCommand
+export class CommandCombination : Command<bool>
 {
 public:
 	template <typename iter_type>
 	CommandCombination(const iter_type& first, const iter_type& last)
-		: CompositeCommand(first, last) {};
+		: _commands(first, last) {};
+	//Command
 	void update(TimeStep timestep) override;
+protected:
+	//Command
 	[[nodiscard]] bool poll() const override;
+private:
+	std::vector<std::shared_ptr<Command<bool>>> _commands;
 };
 
 void CommandCombination::update(TimeStep timestep)
 {
-	for (auto& command : _commands)
-		command->update(timestep);
+	std::ranges::for_each(_commands, [timestep](auto& command) { command->update(timestep); });
+	Command<bool>::update(timestep);
 }
 
 bool CommandCombination::poll() const
 {
-	return std::all_of(_commands.begin(), _commands.end(), 
-		[](const auto& command) { return command->poll(); }
-	);
+	return std::ranges::all_of(_commands, [](const auto& command) { return command->get_value(); });
 }
 
-export class CommandSequence : public CompositeCommand
+export class CommandSequence : public Command<bool>
 {
 public:
 	template <typename iter_type>
 	CommandSequence(const iter_type& first, const iter_type& last, const std::chrono::duration<float> & limit)
-		: CompositeCommand(first, last), _timeLimit(limit) {};
+		: _commands(first, last), _timeLimit(limit) {};
+	//Command
 	void update(TimeStep timestep) override;
+protected:
+	//Command
 	[[nodiscard]] bool poll() const override;
 private:
-	int _index = 0;
-	std::chrono::duration<float> _timeLimit, _elapsedTime{};
 	[[nodiscard]] bool is_complete() const;
 	[[nodiscard]] bool is_expired() const;
 	[[nodiscard]] std::shared_ptr<Command<bool>> current() const;
+	int _index = 0;
+	std::chrono::duration<float> _timeLimit, _elapsedTime{};
+	std::vector<std::shared_ptr<Command<bool>>> _commands;
 	void advance();
 	void reset();
 };
@@ -100,16 +126,18 @@ bool CommandSequence::is_expired() const
 
 std::shared_ptr<Command<bool>> CommandSequence::current() const
 {
-	return _commands[_index];
+	return _commands[std::min(_index, (int)_commands.size() -1 )];
 }
 
 void CommandSequence::update(TimeStep timestep)
 {
 	_elapsedTime += timestep.scaled_time();
 	current()->update(timestep);
+	Command<bool>::update(timestep);
+
 	if (is_complete() || is_expired())
 		reset();
-	else if (current()->poll())
+	else if (current()->get_value())
 		advance();
 }
 
@@ -134,13 +162,12 @@ void CommandSequence::reset()
 export class CommandTap : public Command<bool>
 {
 public:
-	CommandTap() = default;
-	//CommandTap(std::shared_ptr<Command<bool>> command, float frequency) : _delegate(command), _frequency(frequency) {};
 	CommandTap(std::shared_ptr<Command<bool>> command, const std::chrono::seconds & period) 
 		: _delegate(command), _period(period) {};
-	[[nodiscard]] std::chrono::duration<float> elapsed() const{ return _elapsed; };
 	//Command
 	void update(TimeStep timestep) override;
+protected:
+	//Command
 	[[nodiscard]] bool poll() const override;
 private:
 	std::shared_ptr<Command<bool>> _delegate;
@@ -150,7 +177,8 @@ private:
 void CommandTap::update(TimeStep timestep)
 {
 	_delegate->update(timestep);
-	_elapsed = _delegate->poll() ? std::chrono::seconds::zero() : _elapsed + timestep.scaled_time();
+	_elapsed = _delegate->get_value() ? std::chrono::seconds::zero() : _elapsed + timestep.scaled_time();
+	Command<bool>::update(timestep);
 }
 
 bool CommandTap::poll() const

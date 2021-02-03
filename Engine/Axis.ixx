@@ -14,6 +14,9 @@ export class Axis : public Command<float>
 export class DigitalAxis : public Axis
 {
 public:
+	DigitalAxis(std::shared_ptr<Command<bool>> positive, std::shared_ptr<Command<bool>> negative = nullptr)
+		: _positive(positive), _negative(negative) {};
+protected:
 	[[nodiscard]] float poll() const override;
 private:
 	std::shared_ptr<Command<bool>> _positive, _negative;
@@ -22,9 +25,9 @@ private:
 float DigitalAxis::poll() const
 {
 	float value{ 0 };
-	if (_positive && _positive->poll())
+	if (_positive && _positive->get_value())
 		value += 1.0f;
-	if (_negative && _negative->poll())
+	if (_negative && _negative->get_value())
 		value -= 1.0f;
 	return value;
 }

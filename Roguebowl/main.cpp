@@ -12,17 +12,19 @@ int main()
 	using namespace std::chrono_literals;
 	
 	std::vector commands{
-		std::make_shared<Button<sf::Keyboard::Key>>(sf::Keyboard::Key::Space),
-		std::make_shared<Button<sf::Keyboard::Key>>(sf::Keyboard::Key::LControl)
+		std::make_shared<Button<sf::Keyboard::Key>>(sf::Keyboard::Key::Q),
+		std::make_shared<Button<sf::Keyboard::Key>>(sf::Keyboard::Key::E),
 	};
 
-	auto command = CommandTap(commands.front(), 1s);
-	TimeStep timestep{ 16ms };
+	sf::Clock clock;
+	auto sequence = std::make_shared<CommandSequence>(commands.begin(), commands.end(), std::chrono::duration<float>(0.5));
+	auto tap = CommandTap{ sequence, 1s };
 
 	while (true)
 	{
-		command.update(timestep);
-		std::cout << command.poll() << std::endl;
+		TimeStep timestep{ clock.restart() };
+		tap.update(timestep);
+		std::cout << tap.get_value() << std::endl;
 	}
 
 	return 0;
