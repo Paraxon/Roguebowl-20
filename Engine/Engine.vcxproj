@@ -23,6 +23,11 @@
     <ClCompile Include="Axis.ixx" />
     <ClCompile Include="Button.ixx" />
     <ClCompile Include="Command.ixx" />
+    <ClCompile Include="CommandCombination.ixx" />
+    <ClCompile Include="CommandHold.ixx" />
+    <ClCompile Include="CommandMatch.ixx" />
+    <ClCompile Include="CommandSequence.ixx" />
+    <ClCompile Include="CommandTap.ixx" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="Component.ixx" />
     <ClCompile Include="Composition.ixx" />
@@ -30,6 +35,7 @@
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="Entity.ixx" />
     <ClCompile Include="Event.ixx" />
+    <ClCompile Include="MovingAverage.ixx" />
     <ClCompile Include="Observer.ixx" />
     <ClCompile Include="Simulation.cpp" />
     <ClCompile Include="Simulation.ixx" />

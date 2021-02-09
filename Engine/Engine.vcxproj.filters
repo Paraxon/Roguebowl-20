@@ -132,5 +132,23 @@
     <ClCompile Include="Axis.ixx">
       <Filter>Header Files\Input</Filter>
     </ClCompile>
+    <ClCompile Include="CommandMatch.ixx">
+      <Filter>Header Files\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="CommandCombination.ixx">
+      <Filter>Header Files\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="CommandSequence.ixx">
+      <Filter>Header Files\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="CommandTap.ixx">
+      <Filter>Header Files\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="MovingAverage.ixx">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CommandHold.ixx">
+      <Filter>Header Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

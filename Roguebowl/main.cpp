@@ -1,31 +1,39 @@
-#include <SFML/Window.hpp>
-#include <iostream>
 #include <chrono>
 #include <fmt/core.h>
+#include <fmt/ostream.h>
+#include <fstream>
+#include <iostream>
 #include <memory>
-import Button;
+#include <SFML/System.hpp>
+#include <SFML/Window.hpp>
 import Command;
+import Axis;
+import Button;
+import MovingAverage;
 import TimeStep;
 
 int main()
 {
 	using namespace std::chrono_literals;
-	
-	std::vector commands{
-		std::make_shared<Button<sf::Keyboard::Key>>(sf::Keyboard::Key::Q),
-		std::make_shared<Button<sf::Keyboard::Key>>(sf::Keyboard::Key::E),
-	};
+	AnalogAxis axis(sf::Joystick::R);
 
-	sf::Clock clock;
-	auto sequence = std::make_shared<CommandSequence>(commands.begin(), commands.end(), std::chrono::duration<float>(0.5));
-	auto tap = CommandTap{ sequence, 1s };
+	//auto quit = Button(sf::Keyboard::Key::Space);
+	//std::ofstream output{"output.csv"};
+	/*TimeStep timestep{ 16ms };
 
-	while (true)
+	while (!quit.get_value())
 	{
-		TimeStep timestep{ clock.restart() };
-		tap.update(timestep);
-		std::cout << tap.get_value() << std::endl;
-	}
+		sf::Joystick::update();
+		++timestep;
+		axis.update(timestep);
+		quit.update(timestep);
+		
+		const auto str = fmt::format("{:10},{:10},{:10}\n", timestep.run_time(), axis.get_value(), axis.raw_value());
+		std::cout << str;
+		output << str;
+
+		sf::sleep(sf::milliseconds(16));
+	}*/
 
 	return 0;
 }
