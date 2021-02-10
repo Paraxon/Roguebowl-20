@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AnalogAxis.ixx" />
     <ClCompile Include="AssetRegistry.ixx" />
     <ClCompile Include="Axis.ixx" />
     <ClCompile Include="Button.ixx" />
@@ -32,6 +33,7 @@
     <ClCompile Include="Component.ixx" />
     <ClCompile Include="Composition.ixx" />
     <ClCompile Include="Crash.ixx" />
+    <ClCompile Include="DigitalAxis.ixx" />
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="Entity.ixx" />
     <ClCompile Include="Event.ixx" />
@@ -146,7 +148,7 @@
       <AdditionalOptions>/experimental:module /w14640 %(AdditionalOptions)</AdditionalOptions>
       <EnableModules>true</EnableModules>
       <LanguageStandard_C>Default</LanguageStandard_C>
-      <DisableSpecificWarnings>5050</DisableSpecificWarnings>
+      <DisableSpecificWarnings>5050;4100;4251;</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -168,7 +170,7 @@
       <AdditionalOptions>/experimental:module /w14640 %(AdditionalOptions)</AdditionalOptions>
       <EnableModules>true</EnableModules>
       <LanguageStandard_C>Default</LanguageStandard_C>
-      <DisableSpecificWarnings>5050</DisableSpecificWarnings>
+      <DisableSpecificWarnings>5050;4100;4251;</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -190,7 +192,7 @@
       <AdditionalOptions>/experimental:module /w14640 %(AdditionalOptions)</AdditionalOptions>
       <EnableModules>true</EnableModules>
       <LanguageStandard_C>Default</LanguageStandard_C>
-      <DisableSpecificWarnings>5050</DisableSpecificWarnings>
+      <DisableSpecificWarnings>5050;4100;4251;</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -212,7 +214,7 @@
       <AdditionalOptions>/experimental:module /w14640 %(AdditionalOptions)</AdditionalOptions>
       <EnableModules>true</EnableModules>
       <LanguageStandard_C>Default</LanguageStandard_C>
-      <DisableSpecificWarnings>5050</DisableSpecificWarnings>
+      <DisableSpecificWarnings>5050;4100;4251;</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

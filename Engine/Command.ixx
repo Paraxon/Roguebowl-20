@@ -1,11 +1,5 @@
 module;
-#include <algorithm>
-#include <concepts>
-#include <functional>
-#include <memory>
-#include <SFML/System.hpp>
-#include <vector>
-#include <chrono>
+#include <cstddef> //size_t
 export module Command;
 
 import TimeStep;
@@ -57,20 +51,47 @@ export template<>
 class Command<bool>
 {
 public: 
-	[[nodiscard]] constexpr bool was_pressed() const { return _isDown && !_wasDown; };
-	[[nodiscard]] constexpr bool is_down() const { return _isDown; };
-	[[nodiscard]] constexpr bool was_released() const { return !_isDown && _wasDown; };
+	Command() = default;
+	[[nodiscard]] constexpr bool was_pressed() const;
+	[[nodiscard]] constexpr bool is_down() const;
+	[[nodiscard]] constexpr bool was_released() const;
+	//Rule of 5
+	Command(const Command<bool>&) = delete;
+	Command(Command<bool>&&) = delete;
+	Command& operator=(const Command<bool>&) = delete;
+	Command& operator=(Command<bool>&&) = delete;
+	virtual ~Command() = default;
 	//Command
+	[[nodiscard]] virtual bool get_value() const;;
 	virtual void update(TimeStep timestep);
-	virtual bool get_value() const { return _isDown; };
 protected:
 	[[nodiscard]] virtual bool poll() const = 0;
 private:
 	bool _wasDown = false, _isDown = false;
 };
 
+constexpr bool Command<bool>::was_pressed() const 
+{
+	return _isDown && !_wasDown; 
+}
+
+constexpr bool Command<bool>::is_down() const
+{ 
+	return _isDown; 
+}
+
+constexpr bool Command<bool>::was_released() const 
+{
+	return !_isDown && _wasDown; 
+}
+
 void Command<bool>::update(TimeStep timestep)
 {
 	_wasDown = _isDown;
 	_isDown = poll();
+}
+
+bool Command<bool>::get_value() const 
+{
+	return _isDown; 
 }

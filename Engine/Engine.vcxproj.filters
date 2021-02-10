@@ -148,7 +148,13 @@
       <Filter>Header Files</Filter>
     </ClCompile>
     <ClCompile Include="CommandHold.ixx">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="DigitalAxis.ixx">
+      <Filter>Header Files\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="AnalogAxis.ixx">
+      <Filter>Header Files\Input</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

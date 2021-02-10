@@ -1,10 +1,8 @@
 module;
-#include <memory>
 #include <SFML/Window.hpp>
 export module Button;
 
 import Command;
-import TimeStep;
 
 export template<typename hardware_type>
 class Button : public Command<bool>
@@ -16,9 +14,6 @@ public:
 protected:
 	hardware_type _button;
 };
-
-export using MouseButton = Button<sf::Mouse::Button>;
-export using KeyboardKey = Button<sf::Keyboard::Key>;
 
 bool Button<sf::Mouse::Button>::poll() const
 {

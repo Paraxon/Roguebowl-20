@@ -2,6 +2,7 @@ module;
 #include <memory>
 #include <chrono>
 #include <vector>
+#include <iterator>
 export module CommandSequence;
 
 import Command;
@@ -9,28 +10,27 @@ import Command;
 export class CommandSequence : public Command<bool>
 {
 public:
-	template <typename iter_type>
-	CommandSequence(const iter_type& first, const iter_type& last, const std::chrono::duration<float>& limit)
+	template <std::input_iterator<std::unique_ptr<Command<bool>>> iter_type>
+	CommandSequence(const iter_type& first, const iter_type& last, 
+		const std::chrono::duration<float>& limit)
 		: _commands(first, last), _timeLimit(limit) {};
 	//Command
 	void update(TimeStep timestep) override;
 protected:
-	//Command
 	[[nodiscard]] bool poll() const override;
 private:
 	[[nodiscard]] bool is_complete() const;
 	[[nodiscard]] bool is_expired() const;
-	[[nodiscard]] std::shared_ptr<Command<bool>> current() const;
-	int _index = 0;
+	std::vector<std::unique_ptr<Command<bool>>>::iterator _current;
 	std::chrono::duration<float> _timeLimit, _elapsedTime{};
-	std::vector<std::shared_ptr<Command<bool>>> _commands;
+	std::vector<std::unique_ptr<Command<bool>>> _commands;
 	void advance();
 	void reset();
 };
 
 bool CommandSequence::is_complete() const
 {
-	return _index >= _commands.size();
+	return _current == _commands.end();
 }
 
 bool CommandSequence::is_expired() const
@@ -38,20 +38,15 @@ bool CommandSequence::is_expired() const
 	return _elapsedTime > _timeLimit;
 }
 
-std::shared_ptr<Command<bool>> CommandSequence::current() const
-{
-	return _commands[std::min(_index, (int)_commands.size() - 1)];
-}
-
 void CommandSequence::update(TimeStep timestep)
 {
 	_elapsedTime += timestep.scaled_time();
-	current()->update(timestep);
+	(*_current)->update(timestep);
 	Command<bool>::update(timestep);
 
 	if (is_complete() || is_expired())
 		reset();
-	else if (current()->get_value())
+	else if ((*_current)->get_value())
 		advance();
 }
 
@@ -62,12 +57,12 @@ bool CommandSequence::poll() const
 
 void CommandSequence::advance()
 {
-	++_index;
+	++_current;
 	_elapsedTime = std::chrono::seconds::zero();
 }
 
 void CommandSequence::reset()
 {
-	_index = 0;
+	_current = _commands.begin();
 	_elapsedTime = std::chrono::seconds::zero();
 }

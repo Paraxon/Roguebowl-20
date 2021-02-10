@@ -9,14 +9,15 @@ import TimeStep;
 export class CommandHold : public Command<bool>
 {
 public:
-	CommandHold(std::shared_ptr<Command<bool>> command, std::chrono::duration<float> duration) 
-		: _command(command), _duration(duration) {};
+	CommandHold(std::unique_ptr<Command<bool>> command, std::chrono::duration<float> duration) 
+		: _command(std::move(command)), _duration(duration) {};
 	void update(TimeStep timestep) override;
 protected:
+	//Command
 	[[nodiscard]] bool poll() const override;
 private:
 	std::chrono::duration<float> _elapsed, _duration;
-	std::shared_ptr<Command<bool>> _command;
+	std::unique_ptr<Command<bool>> _command;
 };
 
 void CommandHold::update(TimeStep timestep)

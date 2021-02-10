@@ -10,7 +10,7 @@ class CommandMatch : public Command<bool>
 {
 public:
 	using predicate_type = std::function<bool(value_type, value_type)>;
-	CommandMatch(std::shared_ptr<Command<value_type>> command,
+	CommandMatch(std::unique_ptr<Command<value_type>> command,
 		const value_type& target,
 		const predicate_type predicate = std::equal_to<value_type>)
 		: _delegate(command), _target(target), _predicate(predicate) {};
