@@ -19,15 +19,28 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AnalogAxis.ixx" />
     <ClCompile Include="AssetRegistry.ixx" />
+    <ClCompile Include="Axis.ixx" />
+    <ClCompile Include="Button.ixx" />
+    <ClCompile Include="Command.ixx" />
+    <ClCompile Include="CommandCombination.ixx" />
+    <ClCompile Include="CommandHold.ixx" />
+    <ClCompile Include="CommandMatch.ixx" />
+    <ClCompile Include="CommandSequence.ixx" />
+    <ClCompile Include="CommandTap.ixx" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="Component.ixx" />
     <ClCompile Include="Composition.ixx" />
     <ClCompile Include="Crash.ixx" />
+    <ClCompile Include="DigitalAxis.ixx" />
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="Entity.ixx" />
-    <ClCompile Include="Game.cpp" />
-    <ClCompile Include="Game.ixx" />
+    <ClCompile Include="Event.ixx" />
+    <ClCompile Include="MovingAverage.ixx" />
+    <ClCompile Include="Observer.ixx" />
+    <ClCompile Include="Simulation.cpp" />
+    <ClCompile Include="Simulation.ixx" />
     <ClCompile Include="Locator.ixx" />
     <ClCompile Include="Logger.cpp" />
     <ClCompile Include="Logger.ixx" />
@@ -36,9 +49,11 @@
     <ClCompile Include="Serialization.ixx" />
     <ClCompile Include="StackTrace.ixx" />
     <ClCompile Include="StaticFactory.ixx" />
+    <ClCompile Include="Subject.ixx" />
     <ClCompile Include="System.ixx" />
     <ClCompile Include="Terminal.cpp" />
     <ClCompile Include="Terminal.ixx" />
+    <ClCompile Include="TimeStep.ixx" />
     <ClCompile Include="Updatable.cpp" />
     <ClCompile Include="Updatable.ixx" />
     <ClCompile Include="WinTrace.cpp" />
@@ -127,12 +142,13 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpplatest</LanguageStandard>
-      <TreatWarningAsError>true</TreatWarningAsError>
+      <TreatWarningAsError>false</TreatWarningAsError>
       <AdditionalIncludeDirectories>
       </AdditionalIncludeDirectories>
       <AdditionalOptions>/experimental:module /w14640 %(AdditionalOptions)</AdditionalOptions>
       <EnableModules>true</EnableModules>
-      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <LanguageStandard_C>Default</LanguageStandard_C>
+      <DisableSpecificWarnings>5050;4100;4251;</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -148,12 +164,13 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpplatest</LanguageStandard>
-      <TreatWarningAsError>true</TreatWarningAsError>
+      <TreatWarningAsError>false</TreatWarningAsError>
       <AdditionalIncludeDirectories>
       </AdditionalIncludeDirectories>
       <AdditionalOptions>/experimental:module /w14640 %(AdditionalOptions)</AdditionalOptions>
       <EnableModules>true</EnableModules>
-      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <LanguageStandard_C>Default</LanguageStandard_C>
+      <DisableSpecificWarnings>5050;4100;4251;</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -169,12 +186,13 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpplatest</LanguageStandard>
-      <TreatWarningAsError>true</TreatWarningAsError>
+      <TreatWarningAsError>false</TreatWarningAsError>
       <AdditionalIncludeDirectories>
       </AdditionalIncludeDirectories>
       <AdditionalOptions>/experimental:module /w14640 %(AdditionalOptions)</AdditionalOptions>
       <EnableModules>true</EnableModules>
-      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <LanguageStandard_C>Default</LanguageStandard_C>
+      <DisableSpecificWarnings>5050;4100;4251;</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -190,12 +208,13 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpplatest</LanguageStandard>
-      <TreatWarningAsError>true</TreatWarningAsError>
+      <TreatWarningAsError>false</TreatWarningAsError>
       <AdditionalIncludeDirectories>
       </AdditionalIncludeDirectories>
       <AdditionalOptions>/experimental:module /w14640 %(AdditionalOptions)</AdditionalOptions>
       <EnableModules>true</EnableModules>
-      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <LanguageStandard_C>Default</LanguageStandard_C>
+      <DisableSpecificWarnings>5050;4100;4251;</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

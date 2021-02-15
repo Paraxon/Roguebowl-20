@@ -5,6 +5,7 @@ export module Updatable;
 
 import Composition;
 import Crash;
+import TimeStep;
 
 export class Scene;
 export class Entity;
@@ -39,12 +40,12 @@ public:
 	constexpr void set_timescale(const float value) { _timescale = value; };
 	//Simulation
 	virtual void start() {};
-	virtual void update(sf::Time delta_time) = 0;
+	virtual void update(TimeStep deltatime) = 0;
 	//Debugging
 	virtual void debug_draw(sf::RenderTarget& target, sf::RenderStates states) const = 0;
 	virtual void report_crash() const {};
 protected:
 	Updatable() = default;
 private:
-	float _timescale;
+	float _timescale = 1.f;
 };

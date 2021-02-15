@@ -62,15 +62,16 @@ public:
 	};
 	//Logging
 	constexpr void set_verbosity(const Logger::Verbosity value) { _verbosity = value; };
-	void log(const std::string & name, const Logger::Verbosity verbosity, const std::string & message);
+	void log(const std::string & channelName, const Logger::Verbosity verbosity, const std::string & message);
 	//Channels
-	[[nodiscard]] std::shared_ptr<Channel> find(const std::string& name) const;
-	[[nodiscard]] std::shared_ptr<Channel> get(const std::string& name);
 	std::shared_ptr<Channel> add(const std::string& name, std::shared_ptr<Channel> channel);
 	void set_prototype(const std::shared_ptr<Channel> & value) { _prototype = value; };
 	//Serializable
 	void load(const std::filesystem::path& path);
 private:
+	//Channels
+	[[nodiscard]] std::shared_ptr<Channel> find(const std::string& name) const;
+	[[nodiscard]] std::shared_ptr<Channel> get(const std::string& name);
 	Verbosity _verbosity = Verbosity::Trace;
 	std::ofstream _file{ "output.txt" };
 	std::shared_ptr<Channel> _prototype;

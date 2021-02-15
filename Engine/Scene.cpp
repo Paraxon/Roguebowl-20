@@ -3,7 +3,7 @@ import System;
 import Entity;
 #include <SFML/System.hpp>
 
-void Scene::update(sf::Time delta_time)
+void Scene::update(TimeStep delta_time)
 {
 	delta_time *= timescale();
 	for (auto & system : systems())

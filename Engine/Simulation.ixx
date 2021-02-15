@@ -1,19 +1,21 @@
 module;
 #include <functional>
 #include <SFML/Graphics.hpp>
-export module Game;
+#include <chrono>
+export module Simulation;
 
-import Updatable;
+import Component;
 import Composition;
 import Scene;
-import Component;
+import TimeStep;
+import Updatable;
 
-export class Game :
+export class Simulation :
 	public Updatable,
 	public sf::Drawable
 {
 public:
-	Game();
+	Simulation();
 	void run();
 	//Drawable
 	void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
@@ -21,7 +23,7 @@ public:
 	[[nodiscard]] std::shared_ptr<const Scene> scene() const override { return _scene; };
 	//Simulation
 	void start() override;
-	void update(sf::Time delta_time) override;
+	void update(TimeStep delta_time) override;
 	//Debugging
 	[[nodiscard]] sf::Image screenshot() const;
 	void debug_draw(sf::RenderTarget& target, sf::RenderStates states) const override;
@@ -32,6 +34,7 @@ private:
 	sf::Clock _clock;
 	std::shared_ptr<Scene> _scene;
 	bool _debug = false;
-	sf::Time _timeStep = sf::seconds(1 / 60.0f), _budget;
+	TimeStep _timestep = sf::seconds(1.f / 60);
+	std::chrono::duration<float> _budget;
 	std::map<sf::Event::EventType, std::vector<std::function<void(const sf::Event)>>> _delegates;
 };

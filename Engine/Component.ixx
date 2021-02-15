@@ -7,6 +7,7 @@ import Composition;
 import StaticFactory;
 import Serialization;
 import Updatable;
+import TimeStep;
 
 class Entity;
 //class Scene;

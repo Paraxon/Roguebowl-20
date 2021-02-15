@@ -8,6 +8,7 @@ import Component;
 import Composition;
 import StaticFactory;
 import Serialization;
+import TimeStep;
 
 export class Entity :
 	public sf::Drawable,
@@ -35,7 +36,7 @@ public:
 	void report_crash() const override;
 	//Simulation
 	void start();
-	void update(sf::Time delta_time);
+	void update(TimeStep timestep);
 	//Drawable
 	void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
 	//Serializable
