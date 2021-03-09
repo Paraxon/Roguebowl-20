@@ -31,6 +31,12 @@
     <Filter Include="Source Files\Debugging">
       <UniqueIdentifier>{ce189576-aff8-4b98-a2ae-2d857574901d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\TMX">
+      <UniqueIdentifier>{fc9ed389-4e84-475f-93d3-dd6664d1990d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\TMX\Layers">
+      <UniqueIdentifier>{6cf668bf-2bac-40ba-8b81-cd85c420428c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssetRegistry.ixx">
@@ -104,6 +110,36 @@
     </ClCompile>
     <ClCompile Include="WinTrace.cpp">
       <Filter>Source Files\Debugging</Filter>
+    </ClCompile>
+    <ClCompile Include="Properties.ixx">
+      <Filter>Header Files\TMX</Filter>
+    </ClCompile>
+    <ClCompile Include="Tileset.ixx">
+      <Filter>Header Files\TMX</Filter>
+    </ClCompile>
+    <ClCompile Include="Tile.ixx">
+      <Filter>Header Files\TMX</Filter>
+    </ClCompile>
+    <ClCompile Include="TileLayer.ixx">
+      <Filter>Header Files\TMX</Filter>
+    </ClCompile>
+    <ClCompile Include="Object.ixx">
+      <Filter>Header Files\TMX</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageLayer.ixx">
+      <Filter>Header Files\TMX\Layers</Filter>
+    </ClCompile>
+    <ClCompile Include="Layer.ixx">
+      <Filter>Header Files\TMX\Layers</Filter>
+    </ClCompile>
+    <ClCompile Include="LayerGroup.ixx">
+      <Filter>Header Files\TMX\Layers</Filter>
+    </ClCompile>
+    <ClCompile Include="Map.ixx">
+      <Filter>Header Files\TMX\Layers</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectGroup.ixx">
+      <Filter>Header Files\TMX\Layers</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

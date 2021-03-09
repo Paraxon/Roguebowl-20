@@ -2,6 +2,7 @@ module;
 #include <concepts>
 #include <memory>
 #include <filesystem>
+#include <SFML/Graphics.hpp>
 export module Serialization;
 
 export template <typename clone_type, typename ... arg_types>
@@ -21,3 +22,8 @@ concept Serializable = requires (asset_type & asset, const source_types & ... so
 {
 	{ asset.load(sources...) } -> std::convertible_to<bool>;
 };
+
+export sf::Color hexToColor(const std::string_view& source)
+{
+	return sf::Color::Magenta;
+}

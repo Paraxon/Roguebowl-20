@@ -28,9 +28,16 @@
     <ClCompile Include="Entity.ixx" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Game.ixx" />
+    <ClCompile Include="ImageLayer.ixx" />
+    <ClCompile Include="Layer.ixx" />
+    <ClCompile Include="LayerGroup.ixx" />
     <ClCompile Include="Locator.ixx" />
     <ClCompile Include="Logger.cpp" />
     <ClCompile Include="Logger.ixx" />
+    <ClCompile Include="Map.ixx" />
+    <ClCompile Include="Object.ixx" />
+    <ClCompile Include="ObjectGroup.ixx" />
+    <ClCompile Include="Properties.ixx" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Scene.ixx" />
     <ClCompile Include="Serialization.ixx" />
@@ -39,6 +46,9 @@
     <ClCompile Include="System.ixx" />
     <ClCompile Include="Terminal.cpp" />
     <ClCompile Include="Terminal.ixx" />
+    <ClCompile Include="Tile.ixx" />
+    <ClCompile Include="TileLayer.ixx" />
+    <ClCompile Include="Tileset.ixx" />
     <ClCompile Include="Updatable.cpp" />
     <ClCompile Include="Updatable.ixx" />
     <ClCompile Include="WinTrace.cpp" />
@@ -133,6 +143,7 @@
       <AdditionalOptions>/experimental:module /w14640 %(AdditionalOptions)</AdditionalOptions>
       <EnableModules>true</EnableModules>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <DisableSpecificWarnings>4251;4100;</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -154,6 +165,7 @@
       <AdditionalOptions>/experimental:module /w14640 %(AdditionalOptions)</AdditionalOptions>
       <EnableModules>true</EnableModules>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <DisableSpecificWarnings>4251;4100;</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -175,11 +187,16 @@
       <AdditionalOptions>/experimental:module /w14640 %(AdditionalOptions)</AdditionalOptions>
       <EnableModules>true</EnableModules>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <DisableSpecificWarnings>4251;4100;</DisableSpecificWarnings>
+      <BrowseInformation>true</BrowseInformation>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <Bscmake>
+      <PreserveSbr>true</PreserveSbr>
+    </Bscmake>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -196,6 +213,7 @@
       <AdditionalOptions>/experimental:module /w14640 %(AdditionalOptions)</AdditionalOptions>
       <EnableModules>true</EnableModules>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <DisableSpecificWarnings>4251;4100;</DisableSpecificWarnings>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
