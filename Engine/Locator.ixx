@@ -6,6 +6,7 @@ class Locator
 public:
 	[[nodiscard]] static constexpr service_type & get() { return service; };
 	static constexpr void set(const service_type & value) { service = value; };
+	[[nodiscard]] operator service_type&() const { return service; };
 private:
 	static service_type service;
 };

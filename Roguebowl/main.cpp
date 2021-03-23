@@ -1,8 +1,14 @@
+#include <string>
+#include <pugixml.hpp>
 #include <SFML/Graphics.hpp>
+
 import Map;
+import AssetRegistry;
+import Tileset;
+import Locator;
 
 int main()
 {
-	tmx::Map map;
-	map.load("map.tmx");
+	auto map = std::make_shared<tmx::Map>();
+	map->load("dungeon.tmx");
 }

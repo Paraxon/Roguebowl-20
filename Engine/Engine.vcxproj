@@ -20,22 +20,30 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssetRegistry.ixx" />
+    <ClCompile Include="Color.ixx" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="Component.ixx" />
+    <ClCompile Include="CompositeLayer.cpp" />
+    <ClCompile Include="CompositeLayer.ixx" />
     <ClCompile Include="Composition.ixx" />
     <ClCompile Include="Crash.ixx" />
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="Entity.ixx" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Game.ixx" />
+    <ClCompile Include="ImageLayer.cpp" />
     <ClCompile Include="ImageLayer.ixx" />
+    <ClCompile Include="Layer.cpp" />
     <ClCompile Include="Layer.ixx" />
+    <ClCompile Include="LayerGroup.cpp" />
     <ClCompile Include="LayerGroup.ixx" />
     <ClCompile Include="Locator.ixx" />
     <ClCompile Include="Logger.cpp" />
     <ClCompile Include="Logger.ixx" />
+    <ClCompile Include="Map.cpp" />
     <ClCompile Include="Map.ixx" />
     <ClCompile Include="Object.ixx" />
+    <ClCompile Include="ObjectGroup.cpp" />
     <ClCompile Include="ObjectGroup.ixx" />
     <ClCompile Include="Properties.ixx" />
     <ClCompile Include="Scene.cpp" />
@@ -47,6 +55,7 @@
     <ClCompile Include="Terminal.cpp" />
     <ClCompile Include="Terminal.ixx" />
     <ClCompile Include="Tile.ixx" />
+    <ClCompile Include="TileLayer.cpp" />
     <ClCompile Include="TileLayer.ixx" />
     <ClCompile Include="Tileset.ixx" />
     <ClCompile Include="Updatable.cpp" />

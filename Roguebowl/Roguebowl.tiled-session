@@ -1,0 +1,165 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "dungeon.tmx",
+    "expandedProjectPaths": [
+        "C:/Users/James/Desktop/Oryx",
+        "C:/Users/James/Desktop/Oryx/Tilesets",
+        "C:/Users/James/Desktop/Oryx/Oryx16",
+        "C:/Users/James/Desktop/Oryx/Oryx16/TMX Source",
+        ".",
+        "C:/Users/James/Desktop/Oryx/Oryx16/TMX Source/TMX"
+    ],
+    "file.lastUsedOpenFilter": "All Files (*)",
+    "fileStates": {
+        "": {
+            "scaleInDock": 1
+        },
+        "C:/Users/James/Desktop/Oryx/Maps/Map.tmx": {
+            "scale": 0.75,
+            "selectedLayer": 2,
+            "viewCenter": {
+                "x": 644,
+                "y": 445.33333333333337
+            }
+        },
+        "C:/Users/James/Desktop/Oryx/Maps/desert.tmx": {
+            "scale": 0.75,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 162.66666666666669,
+                "y": 514.6666666666665
+            }
+        },
+        "C:/Users/James/Desktop/Oryx/Oryx16/TMX Source/TMX/oryx_16-bit_fantasy_test.tmx#oryx_creatures": {
+            "scaleInDock": 1
+        },
+        "C:/Users/James/Desktop/Oryx/Oryx16/TMX Source/TMX/oryx_16-bit_fantasy_test.tmx#oryx_items": {
+            "scaleInDock": 1
+        },
+        "C:/Users/James/Desktop/Oryx/Oryx16/TMX Source/TMX/oryx_16-bit_fantasy_test.tmx#oryx_world": {
+            "scaleInDock": 1
+        },
+        "C:/Users/James/Desktop/Oryx/Oryx16/TMX Source/TMX/oryx_16-bit_fantasy_test.tmx#oryx_world2": {
+            "scaleInDock": 1
+        },
+        "C:/Users/James/Desktop/Oryx/OryxCreatures.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 3
+        },
+        "C:/Users/James/Desktop/Oryx/OryxWorld.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "C:/Users/James/Desktop/Oryx/Tilesets/OryxCreatures.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 2
+        },
+        "C:/Users/James/Desktop/Oryx/Tilesets/OryxWorld.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "C:/Users/James/Desktop/Roguebowl-2016-master/Resources/dungeon.tmx": {
+            "scale": 1.1194661458333333,
+            "selectedLayer": 3,
+            "viewCenter": {
+                "x": 384.5583018319279,
+                "y": 382.77173596975865
+            }
+        },
+        "C:/Users/James/Desktop/map.tmx": {
+            "scale": 2.236458333333333,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 180.41918956683747,
+                "y": 192.26828132277598
+            }
+        },
+        "C:/Users/James/Desktop/untitled.tmx": {
+            "scale": 2.236458333333333,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 181.31346064275735,
+                "y": 192.26828132277598
+            }
+        },
+        "W:/Oryx/TMX Source/TMX/oryx_16-bit_fantasy_test.tmx": {
+            "scale": 1,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 1073.5,
+                "y": 737
+            }
+        },
+        "creatures.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 2
+        },
+        "dungeon.tmx": {
+            "scale": 1.1182291666666666,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 419.8602701443875,
+                "y": 378.27666511411275
+            }
+        },
+        "items.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 2
+        },
+        "map.tmx": {
+            "scale": 2.236458333333333,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 180.86632510479743,
+                "y": 192.26828132277598
+            }
+        },
+        "tileset.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "world.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        }
+    },
+    "frame.defaultDuration": 250,
+    "loadedWorlds": [
+        "C:/Users/James/Desktop/Oryx/Maps/world.world"
+    ],
+    "map.height": 32,
+    "map.lastUsedFormat": "tmx",
+    "map.tileHeight": 24,
+    "map.tileWidth": 24,
+    "map.width": 32,
+    "openFiles": [
+        "items.tsx",
+        "creatures.tsx",
+        "world.tsx",
+        "dungeon.tmx"
+    ],
+    "project": "Roguebowl.tiled-project",
+    "property.type": "file",
+    "recentFiles": [
+        "items.tsx",
+        "creatures.tsx",
+        "world.tsx",
+        "dungeon.tmx",
+        "C:/Users/James/Desktop/Oryx/Tilesets/OryxCreatures.tsx",
+        "map.tmx",
+        "tileset.tsx",
+        "C:/Users/James/Desktop/map.tmx",
+        "C:/Users/James/Desktop/untitled.tmx",
+        "C:/Users/James/Desktop/Oryx/OryxWorld.tsx",
+        "C:/Users/James/Desktop/Oryx/Tilesets/OryxWorld.tsx",
+        "C:/Users/James/Desktop/Oryx/OryxCreatures.tsx"
+    ],
+    "tileset.lastUsedFormat": "tsx",
+    "tileset.tileSize": {
+        "height": 24,
+        "width": 24
+    }
+}

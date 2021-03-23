@@ -9,14 +9,15 @@ import Serialization;
 template <typename asset_type>
 bool load(asset_type& asset, const std::filesystem::path path)
 {
-	return asset.load(path);
+	asset.load(path);
+	return true;
 }
 
 export template <typename asset_type>
 class AssetRegistry
 {
 public:
-	[[nodiscard]] std::shared_ptr<asset_type> get(const std::filesystem::path & path);
+	std::shared_ptr<asset_type> get(const std::filesystem::path & path);
 private:
 	std::map<std::filesystem::path, std::shared_ptr<asset_type>> assets;
 };

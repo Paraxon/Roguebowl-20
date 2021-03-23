@@ -8,7 +8,7 @@ module;
 #include <functional>
 export module Properties;
 
-import Serialization;
+import Color;
 
 namespace tmx
 {

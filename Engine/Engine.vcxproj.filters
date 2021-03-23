@@ -120,11 +120,38 @@
     <ClCompile Include="Tile.ixx">
       <Filter>Header Files\TMX</Filter>
     </ClCompile>
-    <ClCompile Include="TileLayer.ixx">
-      <Filter>Header Files\TMX</Filter>
-    </ClCompile>
     <ClCompile Include="Object.ixx">
       <Filter>Header Files\TMX</Filter>
+    </ClCompile>
+    <ClCompile Include="Layer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CompositeLayer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Map.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Color.ixx">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LayerGroup.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageLayer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectGroup.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TileLayer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Map.ixx">
+      <Filter>Header Files\TMX</Filter>
+    </ClCompile>
+    <ClCompile Include="CompositeLayer.ixx">
+      <Filter>Header Files\TMX\Layers</Filter>
     </ClCompile>
     <ClCompile Include="ImageLayer.ixx">
       <Filter>Header Files\TMX\Layers</Filter>
@@ -135,10 +162,10 @@
     <ClCompile Include="LayerGroup.ixx">
       <Filter>Header Files\TMX\Layers</Filter>
     </ClCompile>
-    <ClCompile Include="Map.ixx">
+    <ClCompile Include="ObjectGroup.ixx">
       <Filter>Header Files\TMX\Layers</Filter>
     </ClCompile>
-    <ClCompile Include="ObjectGroup.ixx">
+    <ClCompile Include="TileLayer.ixx">
       <Filter>Header Files\TMX\Layers</Filter>
     </ClCompile>
   </ItemGroup>
