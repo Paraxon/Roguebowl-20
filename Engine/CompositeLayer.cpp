@@ -17,16 +17,5 @@ namespace tmx
 			auto child = Layer::create(source.name(), map->nextLayerID(), parent);
 			child->load(source);
 			return child; });*/
-
-		auto map = root();
-		auto parent = shared_from_this();
-
-		//for (const auto& match : children)
-		//{
-		//	const auto& node = match.node();
-		//	auto child = Layer::create(node.name(), 0, nullptr);
-		//	child->load(node);
-		//	//_children.push_back(child);
-		//}
 	}
 }

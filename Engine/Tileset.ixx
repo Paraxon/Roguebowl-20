@@ -36,7 +36,7 @@ namespace tmx
 
 	void Tileset::load(const pugi::xml_node& source)
 	{
-		std::map<std::string, Object::Alignment> alignments
+		const static std::map<std::string, Object::Alignment> alignments
 		{
 			{"unspecified", Object::Alignment::Unspecified},
 			{"topleft", Object::Alignment::TopLeft},

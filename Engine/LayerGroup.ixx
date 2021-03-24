@@ -10,6 +10,7 @@ export import Layer;
 
 namespace tmx
 {
+	//https://docs.mapeditor.org/en/latest/reference/tmx-map-format/#group
 	export class LayerGroup : public Layer, public CompositeLayer
 	{
 	public:

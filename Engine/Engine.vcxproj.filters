@@ -37,6 +37,9 @@
     <Filter Include="Header Files\TMX\Layers">
       <UniqueIdentifier>{6cf668bf-2bac-40ba-8b81-cd85c420428c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\TMX\Objects">
+      <UniqueIdentifier>{68c68865-e26f-4775-912b-77b91d654313}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssetRegistry.ixx">
@@ -120,9 +123,6 @@
     <ClCompile Include="Tile.ixx">
       <Filter>Header Files\TMX</Filter>
     </ClCompile>
-    <ClCompile Include="Object.ixx">
-      <Filter>Header Files\TMX</Filter>
-    </ClCompile>
     <ClCompile Include="Layer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -167,6 +167,27 @@
     </ClCompile>
     <ClCompile Include="TileLayer.ixx">
       <Filter>Header Files\TMX\Layers</Filter>
+    </ClCompile>
+    <ClCompile Include="Point.ixx">
+      <Filter>Header Files\TMX\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Ellipse.ixx">
+      <Filter>Header Files\TMX\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Polygon.ixx">
+      <Filter>Header Files\TMX\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Object.ixx">
+      <Filter>Header Files\TMX</Filter>
+    </ClCompile>
+    <ClCompile Include="Polyline.ixx">
+      <Filter>Header Files\TMX\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Text.ixx">
+      <Filter>Header Files\TMX\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Poly.ixx">
+      <Filter>Header Files\TMX\Objects</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

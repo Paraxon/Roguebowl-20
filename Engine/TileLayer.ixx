@@ -8,6 +8,7 @@ export import Layer;
 
 namespace tmx
 {
+	//https://docs.mapeditor.org/en/latest/reference/tmx-map-format/#layer
 	export class TileLayer : public Layer
 	{
 	public:

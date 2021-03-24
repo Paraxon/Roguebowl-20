@@ -7,6 +7,7 @@ export import Layer;
 
 namespace tmx
 {
+	//https://docs.mapeditor.org/en/latest/reference/tmx-map-format/#imagelayer
 	export class ImageLayer : public Layer
 	{
 	public:

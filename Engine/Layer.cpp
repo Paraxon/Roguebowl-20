@@ -10,13 +10,13 @@ import ImageLayer;
 //import LayerGroup;
 import CompositeLayer;
 
-//std::map<std::string, std::shared_ptr<tmx::Layer>> StaticFactory<tmx::Layer>::_prototypes
-//{
-//	{"layer", std::make_shared<tmx::TileLayer>(0, nullptr)},
-//	{"objectgroup", std::make_shared<tmx::ObjectGroup>(0, nullptr)},
-//	{"imagelayer", std::make_shared<tmx::ImageLayer>(0, nullptr)},
-//	{"group", std::make_shared<tmx::LayerGroup>(0, nullptr)}
-//};
+std::map<std::string, std::shared_ptr<tmx::Layer>> StaticFactory<tmx::Layer>::_prototypes
+{
+	{"layer", std::make_shared<tmx::TileLayer>(0, nullptr)},
+	{"objectgroup", std::make_shared<tmx::ObjectGroup>(0, nullptr)},
+	{"imagelayer", std::make_shared<tmx::ImageLayer>(0, nullptr)},
+	//{"group", std::make_shared<tmx::LayerGroup>(0, nullptr)}
+};
 
 namespace tmx
 {

@@ -14,6 +14,7 @@ namespace tmx
 {
 	export using Property = std::variant<std::string, int, float, bool, sf::Color, std::filesystem::path, unsigned int>;
 
+	//https://docs.mapeditor.org/en/latest/reference/tmx-map-format/#properties
 	export class Properties
 	{
 	public:

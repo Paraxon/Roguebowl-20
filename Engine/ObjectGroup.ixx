@@ -11,6 +11,7 @@ namespace tmx
 {
 	export class Object;
 
+	//https://docs.mapeditor.org/en/latest/reference/tmx-map-format/#objectgroup
 	export class ObjectGroup : public Layer
 	{
 	public:
