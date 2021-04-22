@@ -46,10 +46,12 @@
     <ClCompile Include="Object.ixx" />
     <ClCompile Include="ObjectGroup.cpp" />
     <ClCompile Include="ObjectGroup.ixx" />
+    <ClCompile Include="ObjectType.ixx" />
     <ClCompile Include="Point.ixx" />
     <ClCompile Include="Poly.ixx" />
     <ClCompile Include="Polygon.ixx" />
     <ClCompile Include="Polyline.ixx" />
+    <ClCompile Include="Propertied.ixx" />
     <ClCompile Include="Properties.ixx" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Scene.ixx" />

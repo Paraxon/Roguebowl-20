@@ -5,12 +5,12 @@
     },
     "activeFile": "dungeon.tmx",
     "expandedProjectPaths": [
-        "C:/Users/James/Desktop/Oryx",
-        "C:/Users/James/Desktop/Oryx/Tilesets",
-        "C:/Users/James/Desktop/Oryx/Oryx16",
+        "C:/Users/James/Desktop/Oryx/Oryx16/TMX Source/TMX",
         "C:/Users/James/Desktop/Oryx/Oryx16/TMX Source",
         ".",
-        "C:/Users/James/Desktop/Oryx/Oryx16/TMX Source/TMX"
+        "C:/Users/James/Desktop/Oryx",
+        "C:/Users/James/Desktop/Oryx/Tilesets",
+        "C:/Users/James/Desktop/Oryx/Oryx16"
     ],
     "file.lastUsedOpenFilter": "All Files (*)",
     "fileStates": {
@@ -99,7 +99,7 @@
         },
         "dungeon.tmx": {
             "scale": 1.1182291666666666,
-            "selectedLayer": 0,
+            "selectedLayer": 3,
             "viewCenter": {
                 "x": 419.8602701443875,
                 "y": 378.27666511411275

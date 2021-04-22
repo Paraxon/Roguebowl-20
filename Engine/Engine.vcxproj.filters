@@ -189,5 +189,11 @@
     <ClCompile Include="Poly.ixx">
       <Filter>Header Files\TMX\Objects</Filter>
     </ClCompile>
+    <ClCompile Include="Propertied.ixx">
+      <Filter>Header Files\TMX</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectType.ixx">
+      <Filter>Header Files\TMX</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
